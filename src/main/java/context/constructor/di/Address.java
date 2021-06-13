@@ -1,4 +1,4 @@
-package context.constructor;
+package context.constructor.di;
 
 public class Address {
     private String city;

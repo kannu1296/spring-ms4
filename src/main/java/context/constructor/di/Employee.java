@@ -1,4 +1,4 @@
-package context.constructor;
+package context.constructor.di;
 
 public class Employee {
     private int id;

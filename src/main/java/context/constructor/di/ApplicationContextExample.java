@@ -1,4 +1,4 @@
-package context.constructor;
+package context.constructor.di;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;

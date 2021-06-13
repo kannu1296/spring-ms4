@@ -10,17 +10,70 @@
     <context:annotation-config/>
 
     <!-- Creating bean using constructor based dependency injection-->
-    <bean id="address" class="context.constructor.Address">
+    <bean id="address" class="context.constructor.di.Address">
         <constructor-arg value="Gwalior"/>
         <constructor-arg value="MP"/>
         <constructor-arg value="India"/>
     </bean>
-    <bean id="employee" class="context.constructor.Employee">
+    <bean id="employee" class="context.constructor.di.Employee">
         <constructor-arg value="1" type="int"/>
         <constructor-arg value="Karan"/>
         <constructor-arg ref="address"/>
     </bean>
 
+    <!-- Creating bean using constructor based dependency injection with collection-->
+    <bean id="answer1" class="context.constructor.collection.Answer">
+        <constructor-arg value ="1"/>
+        <constructor-arg value="Delhi"/>
+        <constructor-arg value="Karan"/>
+    </bean>
+    <bean id="answer2" class="context.constructor.collection.Answer">
+        <constructor-arg value ="2" type="int"/>
+        <constructor-arg value="Kolkata"/>
+        <constructor-arg value="Ravi"/>
+    </bean>
+    <bean id="question" class="context.constructor.collection.Question">
+        <constructor-arg value="1" type="int"/>
+        <constructor-arg value="What is the capital of in india"/>
+        <constructor-arg>
+            <list>
+                <ref bean="answer1"/>
+                <ref bean="answer2"/>
+            </list>
+        </constructor-arg>
+    </bean>
 
+    <!-- Creating bean using constructor based dependency injection with collection-->
+    <bean id="answerMap1" class="context.constructor.map.Answer">
+        <constructor-arg value="1"/>
+        <constructor-arg value="Java is a Programming Language"/>
+        <constructor-arg value="12/12/2001"/>
+    </bean>
+    <bean id="answerMap2" class="context.constructor.map.Answer">
+        <constructor-arg value="2"/>
+        <constructor-arg value="Java is a Platform"/>
+        <constructor-arg value="12/12/2003"/>
+    </bean>
 
+    <bean id="user1" class="context.constructor.map.User">
+        <constructor-arg value="1"/>
+        <constructor-arg value="Arun Kumar"/>
+        <constructor-arg value="arun@gmail.com"/>
+    </bean>
+    <bean id="user2" class="context.constructor.map.User">
+        <constructor-arg value="2"/>
+        <constructor-arg value="Varun Kumar"/>
+        <constructor-arg value="Varun@gmail.com"/>
+    </bean>
+
+    <bean id="questionMap" class="context.constructor.map.Question">
+        <constructor-arg value="1"/>
+        <constructor-arg value="What is Java?"/>
+        <constructor-arg>
+            <map>
+                <entry key-ref="answerMap1" value-ref="user1"/>
+                <entry key-ref="answerMap2" value-ref="user2"/>
+            </map>
+        </constructor-arg>
+    </bean>
 </beans>
